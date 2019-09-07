@@ -1,0 +1,34 @@
+
+<h1 id="contactHeader">Login</h1>
+<div id="formsection">
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="formdiv">
+
+         <!--Username-->
+         <div class="form-row">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="" class="form-row-input"
+            [(ngModel)]="username"
+            #userInput
+            required>
+        </div>
+        <div class="form-row">
+            <label for="password">Password</label>
+            <input type="password" name="password"  placeholder="" class="form-row-input"
+            [(ngModel)]="password"
+            #passwordInput
+            required>
+           
+        </div>
+         <!--Submit and reset buttons-->
+         <div class="form-row">
+            <!-- <input id="btnSubmit" type="submit" value="Submit" /> -->
+            <button type="submit" [disabled]="!form.valid">MySubmit</button>
+            <input id="btnReset" type="reset" value="Reset" />
+            
+        </div>
+    </div>
+  </form> 
+  </div>
+
+

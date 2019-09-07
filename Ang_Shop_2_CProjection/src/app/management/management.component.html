@@ -1,0 +1,53 @@
+<div>
+    <button type="button" (click)="changeMode('add')">Add new Product Mode</button>
+    <button type="button" (click)="changeMode('update')">Update Product Mode</button>
+</div>
+<div id="formsection">
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+        <div *ngIf="manageMode === 'update'">
+            <label for="product">Product</label>
+            <select name="product" [ngModel]="serviceProducts" formControlName="product" (change)="prodClicked($event)" class="form-row-input">
+                <option *ngFor="let prod of serviceProducts" [value]="prod.id">{{ prod.name }}</option>
+            </select>
+        </div>
+        <div *ngIf="manageMode === 'add'">
+            <label for="category">Category</label>
+            <select name="category" [ngModel]="serviceCategories" formControlName="category" class="form-row-input">
+                <option *ngFor="let cat of serviceCategories" [value]="cat.id">{{ cat.name }}</option>
+            </select>
+            <span *ngIf="!addProductForm.get('category').valid && addProductForm.get('category').touched">
+                please enter a category
+            </span>
+        </div>
+        <div class="form-row">
+            <label for="title">Title</label>
+            <input type="text" name="title" formControlName="title" class="form-row-input">
+            <span *ngIf="!addProductForm.get('title').valid && addProductForm.get('title').touched">
+                please enter a title
+            </span>
+        </div>
+        <div class="form-row">
+            <label for="image">Image</label>
+            <input type="text" name="image" formControlName="image" class="form-row-input">
+            <span *ngIf="!addProductForm.get('image').valid && addProductForm.get('image').touched">
+                please enter an image url
+            </span>
+        </div>
+        <div class="form-row">
+            <label for="price">Price</label>
+            <input type="number" name="price" formControlName="price" class="form-row-input">
+            <span *ngIf="!addProductForm.get('price').valid && addProductForm.get('price').touched">
+                please enter a price
+            </span>
+        </div>
+        <div class="form-row">
+            <label for="desc">Description</label>
+            <input type="text" name="desc" formControlName="desc" class="form-row-input">
+        </div>
+        <span *ngIf="!addProductForm.valid && addProductForm.touched">
+            please check your fields.
+        </span>
+        <button type="submit">Save</button>
+        <button type="submit" (click)="revert()">Clear</button>
+    </form>
+</div>

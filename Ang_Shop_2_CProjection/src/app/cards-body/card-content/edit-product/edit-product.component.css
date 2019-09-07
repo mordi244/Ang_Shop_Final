@@ -1,0 +1,72 @@
+input.ng-invalid.ng-touched {
+    border:1px solid red;
+}
+
+#contactHeader {
+    text-align: center;
+}
+.form-row-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+span.form-row-error {
+    color:grey;
+  }
+  input.ng-invalid.ng-touched , textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+    }
+
+    button[type=submit],button[type=reset],button[type=button] {
+        background-color: rgba(31, 212, 91, 0.856);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 4px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button[type=submit]:hover, button[type=reset]:hover{
+        background-color: #9b9b9b;
+      }
+  input[type=submit],input[type=reset] {
+    
+    background-color: rgba(31, 212, 91, 0.856);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover, input[type=reset]:hover{
+    background-color: #9b9b9b;
+  }
+  
+  .formdiv {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+  #formsection {
+      width: 50%;
+      margin: auto;
+  }
+ 

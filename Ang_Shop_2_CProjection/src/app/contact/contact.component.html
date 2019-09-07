@@ -1,0 +1,57 @@
+<h1 id="contactHeader">Contact Us</h1>
+<div id="formsection">
+    <form (ngSubmit)="openModal(form,template)" #form="ngForm">
+
+        <!--First and last name-->
+        <div class="formdiv">
+
+            <!--Email-->
+            <div class="form-row">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="johnsmith@gmail.com" class="form-row-input"
+                ngModel
+                required
+                email
+                #email="ngModel">
+                <span *ngIf="!email.valid && email.touched" class="form-row-error">Please enter email</span>
+            </div>
+            <div class="form-row">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject"  placeholder="Your Subject" class="form-row-input"
+                ngModel
+                required
+                #subject="ngModel">
+                <span *ngIf="!subject.valid && subject.touched" class="form-row-error">Please enter subject</span>
+            </div>
+           
+            <!--Comment-->
+            <div class="form-row">
+                <label for="message">Message</label>
+                <br>
+                <textarea name="message" placeholder="Write something.." rows="4" cols="50" class="form-row-input"
+                    ngModel
+                    #message="ngModel">
+            </textarea>
+            </div>
+
+
+            <!--Submit and reset buttons-->
+            <div class="form-row">
+                <input id="btnSubmit" type="submit" value="Submit" />
+                <input id="btnReset" type="reset" value="Reset" />
+            </div>
+            
+           
+        </div>
+    </form>
+    
+    <br><br>
+    <ng-template #template>
+      <div class="modal-body text-center">
+        <p>Do you want to confirm?</p>
+        <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+        <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+      </div>
+    </ng-template>
+    
+</div>

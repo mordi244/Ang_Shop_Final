@@ -1,0 +1,10 @@
+<div class="card" *ngIf="!editClick">
+    <img [src]="showProd.img" alt="showProd.name" style="width:100%">
+    <h1>{{ showProd.name }}</h1>
+    <p class="price">{{showProd.price}}$</p>
+    <p>{{ showProd.description }}</p>
+    <p><button (click)="addToCart(showProd)" *ngIf="logged">Add to Cart</button></p>
+    <p><button  *ngIf="isAdmin" (click)="onClickEdit()">Edit</button></p>
+    <p class="added" *ngIf="exists !== ''">Added to your cart</p>
+</div>
+<app-edit-product *ngIf="editClick" [showProd]="showProd" (editClick)="editClick = !editClick"></app-edit-product>

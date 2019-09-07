@@ -1,0 +1,11 @@
+
+<div class="container">
+    <div class="subHeader">
+      <h4 >{{ getCartLength() > 0 ? 'Cart Products' :'Your Cart is Empty' }}</h4>  
+    </div>
+    <app-cart-item  (clicked)="clicked($event)" (cartSize)="cartLength($event)" *ngFor="let product of cart" [product]="product"  routerLink="{{ product.id }}">
+    </app-cart-item>  
+</div>
+<div *ngIf="click">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,11 @@
+
+<div class="card">
+    <div class="header">
+        <span class="productName">{{ product.name }}</span>
+        <span class="productPrice">{{ product.price }}$</span>
+    </div>
+    <hr>
+    <p><button (click)="Tclicked()">Show Details</button></p>
+    <p><button (click)="navigate()">Hide Details</button></p>
+    <p><button (click)="removeFromCart(product)">Remove from Cart</button></p>
+</div>

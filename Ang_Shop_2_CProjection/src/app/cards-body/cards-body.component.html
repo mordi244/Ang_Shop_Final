@@ -1,0 +1,31 @@
+<!-- <select [(ngModel)]="currentCategory" (change)="clickCategory($event)">
+    <option ng-selected="true" value="All">All</option>
+    <option  *ngFor="let cat of fullCategoryArr" [value]="cat.id">{{ cat.name }}</option>
+  </select> -->
+<!-- nav bar logic -->
+<mat-drawer-container autosize>
+  <mat-drawer #drawer class="sidenav">
+    <ul>
+      <li><a href="#" (click)="clickCategory('All')">All</a></li>
+      <li *ngFor="let cat of serviceCategories"><a href="#" (click)="clickCategory(cat)">{{ cat.name }}</a></li>
+    </ul>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <button mat-icon-button (click)="drawer.toggle()">
+     
+      <mat-icon>menu</mat-icon>
+      Categories
+    </button>
+  </div>
+  <!-- <div class="container" [@addProduct]  > -->
+  <div class="container"   >
+    <div *ngIf="prodClicked === 'N'" class="subHeader">
+      <h4>Buy our Products</h4>
+    </div>
+    <!-- <app-card [productsArr]="productsArr"></app-card> --> 
+     <app-card  (prodToLoadDesc)="getProduc($event)" *ngFor="let product of showProducts" [product]="product" [prodClicked]="prodClicked"   routerLink="{{ product.id }}">
+    </app-card>
+    <!-- <app-card-content (cartNum)="cartLength($event)" (backUp)="backUpPage()"></app-card-content>  -->
+    
+  </div>
+</mat-drawer-container>

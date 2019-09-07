@@ -1,0 +1,59 @@
+<!-- nav bar logic -->
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav">
+        <ul>
+            <!-- <li><a routerLink="/login" (click)="onSelect($event.target.text)">{{ logMode | translate }}</a></li>
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="onSelect($event.target.text)">{{ 'Home' | translate }}</a></li>
+            <li><a routerLink="/about" routerLinkActive="active" (click)="onSelect($event.target.text)">{{ 'About' | translate }} </a></li>
+            <li><a routerLink="/products" (click)="onSelect($event.target.text)">{{ 'Products' | translate }}</a></li>
+            <li *ngIf="userLogged() === 'user'"><a href="#" (click)="onSelect('Cart')">{{ 'Cart' | translate }} ({{cartSize}})</a></li>
+            <li *ngIf="userLogged() === 'admin'"><a href="#" (click)=onSelect($event.target.text)>{{ 'Management' | translate }}</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active" (click)="onSelect($event.target.text)">{{ 'Contact' | translate }}</a></li> -->
+            <li><a routerLink="/login" routerLinkActive="active" (click)="onSelect(logMode)">{{ logMode | translate }}</a></li>
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{ 'Home' | translate }}</a></li>
+            <li><a routerLink="/about" routerLinkActive="active">{{ 'About' | translate }} </a></li>
+            <li><a routerLink="/products" routerLinkActive="active">{{ 'Products' | translate }}</a></li>
+            <li *ngIf="userLogged() === 'user'" routerLinkActive="active"><a routerLink="/cart">{{ 'Cart' | translate }} ({{getCartLength()}})</a></li>
+            <li *ngIf="userLogged() === 'admin'" routerLinkActive="active"><a routerLink="/management">{{ 'Management' | translate }}</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active">{{ 'Contact' | translate }}</a></li>
+        </ul>
+
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <button mat-icon-button (click)="drawer.toggle()">
+            <div class="icondiv">
+                <mat-icon>menu</mat-icon> 
+            </div>
+        </button>
+        <a href="#" (click)="changeLng($event.target.text)">English </a>
+        <a href="#" (click)="changeLng($event.target.text)">Spanish</a>
+
+        
+    </div>
+    <!-- components -->
+    <main>
+        <div>
+            <div class="social-header">
+                <app-social></app-social>
+            </div>
+            <!-- <app-sub-header (cartClick)="onSelect('Cart')" [cartSize]="cartSize" [user]="logged" *ngIf="logged"></app-sub-header>           -->
+            <app-sub-header (cartClick)="onSelect('Cart')" [cartSize]="cartSize" *ngIf="logged"></app-sub-header>          
+            <app-header></app-header>
+        </div>
+        <!-- <app-login (logged)="isLogged($event)" *ngIf="loadedPage === 'Login'"></app-login> -->
+        <!-- <app-cards-body (cartNum)="cartLength($event)" (backUp)="backUp()" *ngIf="loadedPage === 'Products'">
+        </app-cards-body>
+        <app-about *ngIf="loadedPage === 'About'"></app-about>
+        <app-cart (cartSize)="cartLength($event)" *ngIf="loadedPage === 'Cart'"></app-cart>
+        <app-contact *ngIf="loadedPage === 'Contact'"></app-contact>
+        <app-management *ngIf="loadedPage === 'Management'"></app-management>
+        <app-home *ngIf="loadedPage === 'Home'"></app-home> -->
+        
+        <div
+        [@routerTransition]="appOutlet.isActivated ? appOutlet.activatedRoute : null">
+       <router-outlet #appOutlet="outlet"></router-outlet>
+         </div>
+        <app-footer></app-footer>
+    </main>
+</mat-drawer-container>

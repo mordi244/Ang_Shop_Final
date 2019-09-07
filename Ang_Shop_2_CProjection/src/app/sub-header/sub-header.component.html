@@ -1,0 +1,8 @@
+<mat-toolbar color="secondary">
+    <span>Welcome {{ name }}</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="clickOnCart()">
+        <mat-icon class="icon">add_shopping_cart</mat-icon>
+        <span class="badge" *ngIf="getCartLength() > 0">{{ getCartLength() }}</span>
+    </button>
+</mat-toolbar>
